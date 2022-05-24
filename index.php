@@ -91,11 +91,12 @@ $dischi = [
             background-color: #2e3a46;
         }
         .logo img{
-            height: 100px;
-            padding: 1rem;
+            height:100px;
+            padding: 10px;
         }
         main{
             background-color: #1e2d3b;
+            height: calc(100vh - 104px);
         }
         .container{
             max-width: 1440px;
@@ -108,10 +109,22 @@ $dischi = [
         }
         .card{
             width: calc(100% / 5 - 2rem);
+            background-color: #2e3a46;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
         .card > img{
             max-width: calc(100% - 1rem);
-            padding: 1 rem;
+            padding: 1rem;
+        }
+        .card > h2{
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .card > p{
+            color: grey;
         }
     </style>
 </head>
@@ -128,6 +141,9 @@ $dischi = [
             <?php foreach($dischi as $disco) : ?>
                 <div class="card">
                 <img src="<?php echo $disco["poster"] ?>" alt="img album">
+                <h2> <?php echo $disco["title"] ?> </h2>
+                <p> <?php echo $disco["author"] ?> </p>
+                <p> <?php echo $disco["year"] ?> </p>
                 </div>
             <?php endforeach ?>
         </div>
