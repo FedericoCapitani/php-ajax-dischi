@@ -4,7 +4,10 @@
     <header>
       <div class="logo">
         <img src="./assets/img/logo.png" alt="logo spotify">
-        
+        <select v-model="selected" v-on:click="genre_selected">
+          <option disabled value="">Please Select</option>
+          <option v-for="disco in dischi" :key="disco.poster"> {{disco.genre}} </option>
+        </select>
       </div>
     </header>
     <main>
@@ -32,7 +35,19 @@ export default {
   },
   data() {
     return {
-      dischi: null
+      dischi: null,
+      selected: '',
+      genres: [],
+      selected_dischi: []
+    }
+  },
+  methods: {
+    genre_selected(){
+      this.dischi.forEach(disco => {
+        if(disco.genre === this.selected){
+        this.selected_dischi.push(disco)
+      }
+      });
     }
   },
   mounted() {
@@ -59,13 +74,24 @@ export default {
     header{
       background-color: #2e3a46;
     }
+    .logo{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .logo img{
       height:100px;
       padding: 10px;
     }
+    .logo > select{
+      margin-right: 3rem;
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+    }
     main{
       background-color: #1e2d3b;
-      height: calc(100vh - 104px);
+      height: calc(100vh - 100px);
     }
     .container{
       max-width: 1440px;
