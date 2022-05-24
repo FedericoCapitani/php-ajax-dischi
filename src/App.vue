@@ -4,6 +4,7 @@
     <header>
       <div class="logo">
         <img src="./assets/img/logo.png" alt="logo spotify">
+        
       </div>
     </header>
     <main>
