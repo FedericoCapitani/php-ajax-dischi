@@ -81,6 +81,7 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
+      padding-bottom: 1rem;
     }
     .card > img{
       max-width: calc(100% - 1rem);
