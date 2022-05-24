@@ -72,82 +72,8 @@ $dischi = [
         "year" => "1987"
     ]
 ];
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+echo json_encode($dischi);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php-ajax-dischi</title>
-    <style>
-        *{
-            margin:0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        header{
-            background-color: #2e3a46;
-        }
-        .logo img{
-            height:100px;
-            padding: 10px;
-        }
-        main{
-            background-color: #1e2d3b;
-            height: calc(100vh - 104px);
-        }
-        .container{
-            max-width: 1440px;
-            display: flex;
-            margin: 0 auto;
-            padding-top: 4rem;
-            column-gap: 2rem;
-            row-gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .card{
-            width: calc(100% / 5 - 2rem);
-            background-color: #2e3a46;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-        .card > img{
-            max-width: calc(100% - 1rem);
-            padding: 1rem;
-        }
-        .card > h2{
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        .card > p{
-            color: grey;
-        }
-    </style>
-</head>
-<body>
-    
-    <header>
-        <div class="logo">
-            <img src="./src/assets/img/logo.png" alt="logo spotify">
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <?php foreach($dischi as $disco) : ?>
-                <div class="card">
-                <img src="<?php echo $disco["poster"] ?>" alt="img album">
-                <h2> <?php echo $disco["title"] ?> </h2>
-                <p> <?php echo $disco["author"] ?> </p>
-                <p> <?php echo $disco["year"] ?> </p>
-                </div>
-            <?php endforeach ?>
-        </div>
-    </main>
-
-</body>
-</html>
